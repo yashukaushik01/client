@@ -1,0 +1,79 @@
+login form- local storage, password in user table in db
+
+improve form ui
+    use grid
+    use snackbars on submission, success, errors,etc
+
+on delete show confirmation pop-up
+
+improve table ui
+
+create employee details ui - 
+
+
+On login (based on role):-
+    Save useremail, role and password in local storage - done 
+    On logout, clear details from local storage - done
+
+    Check if user is loggedIn or not before app.tsx level - if yes, don't show login - done
+
+    For admin:-
+        Show employee list (by default) - done
+        In employeelist, button for view - (button done, functionality remains) and delete - done,
+        For delete, ask for confirmation popup, - done
+        In employeedetail, provide edit and View leaves buttons - done
+        click on edit, enable form fields to edit - done
+        on view leaves, go to new screen and show leaves of employees in table - done
+        Add approve/reject buttons for leaves - done
+        On rejecting, ask confirmation pop-up with reason - done
+    
+    For employee:-
+        Show employeedetails(same as line 24) with disabled form fields - done
+        Provide edit (same as admin with few fields disabled) - done
+        request leave buttons - done 
+        On requestleave, navigate to new screen with formFields for leave - on submission navigate back to employeedetails - done
+
+
+Formik components - src/schema/employee.schema.ts
+app.interface.ts - req, res types
+app.enum.ts
+app.constant.ts - JSON object for hardcoded values
+src/assets/style.scss, icons, images in separate folders in src/assets
+
+
+themes for employees/admin
+
+
+
+Snackbars for ALL processes
+Remove horizontal scroll
+
+
+Validations related to leaves
+    Reason required in leave reject
+    Check number of days while applying for leave 
+
+
+Snackbar full functionality - colors with OK button - done
+comments
+Hide updateEmployee button - done(disabled)
+Horizontal scroll - done
+Theory of nestjs (ng module object keys)
+Add method for sending email to user when his/her account is created
+Typescript types
+
+
+save object for user details after login and save with stringify in localstorage and fetch with json.parse
+
+
+
+Where and how to check if user is logged in or not for any url path
+how to transfer data from child component to parent for navbar options
+After adding employee, screen changes to /admin/view-employees/, how to show snackbar on add-employee screen
+{% comment %} Verified user from backend, saved data to localStorage, how to manage routing based on userRole {% endcomment %}
+
+
+
+
+
+not autoNavigating on login and logout
