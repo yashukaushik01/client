@@ -57,8 +57,8 @@ export default function EmployeeTable() {
     try{
       const response = await axios.get(url);
       setEmployees(response.data.model);
-    } catch (Error) {
-      throw Error;
+    } catch (Errors) {
+      throw Errors;
     }
   }
 

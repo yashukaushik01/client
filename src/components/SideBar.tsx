@@ -19,6 +19,7 @@ export default function SideBar() {
     : userParsed = user
 
     const [navBarOptions, setNavBarOptions] = useState(
+        //Checks if loggedin user is employee or admin, based on that sets the navigation options
         userParsed?.role === Role.ADMIN
         ?   [
                 {

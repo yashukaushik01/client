@@ -22,9 +22,13 @@ export default function AddLeave() {
 
       //Posts leave data to database for creating leave and navigates back to /employee/view-leaves
       async function postLeave(values:{}){
-          const response = await axios.post(url, values);
-          setFrameSnackbarMessage(response.data.message);
-          navigate('/employee/view-leaves');
+        try {
+            const response = await axios.post(url, values);
+            setFrameSnackbarMessage(response.data.message);
+            navigate('/employee/view-leaves');
+        } catch(Errors) {
+            throw Errors;
+        }
       }
 
       //Gets the number of days between the fromDate and toDate selected by employee
@@ -39,14 +43,18 @@ export default function AddLeave() {
 
       //Checks if employee's remaining leaves are less than leaves requested, if not, calls postLeave
       async function handleLeaves(values: any){
-        const response = await axios.get(`${constants.employeeUrl}${userParsed.email}`)
-        let employeeLeaves = response.data.model.allotedLeaves;
-        let nosOfDays = getNosOfDays();
-        if (employeeLeaves < nosOfDays){
-            setFrameSnackbarMessage(`Your remaining leaves are ${employeeLeaves}`);
-        } else {
-            values.nosOfDays = nosOfDays;
-            postLeave(values);
+        try {
+            const response = await axios.get(`${constants.employeeUrl}${userParsed.email}`)
+            let employeeLeaves = response.data.model.allotedLeaves;
+            let nosOfDays = getNosOfDays();
+            if (employeeLeaves < nosOfDays){
+                setFrameSnackbarMessage(`Your remaining leaves are ${employeeLeaves}`);
+            } else {
+                values.nosOfDays = nosOfDays;
+                postLeave(values);
+            }
+        } catch (Errors) {
+            throw Errors;
         }
       }
 

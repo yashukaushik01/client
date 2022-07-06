@@ -1,6 +1,6 @@
 import { Box, createStyles, Grid, makeStyles, Paper, Snackbar, Theme } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
 import SideBar from "./components/SideBar";
@@ -59,7 +59,6 @@ const AppFrame = (props: IAppFrameProps) => {
                 open = {frameSnackbarMessage !== ''}
                 autoHideDuration={3000}
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                // message={frameSnackbarMessage}
                 onClose={() => {    
                     setFrameSnackbarMessage('');
                 }}

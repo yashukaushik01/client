@@ -53,6 +53,8 @@ export default function LoginForm() {
         password: ''
     }
 
+    //Sends the request o backend with userEmail and userPassword to verify the user and 
+    // if verified saves details in localStorage
     async function verifyUser(values: LoginFormSchema){
         const response = await axios.post(`${url}${values.email}`, {"password": values.password});
         setLoginFormSnackbarMessage(response.data.message);

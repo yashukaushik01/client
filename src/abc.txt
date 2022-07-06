@@ -55,7 +55,7 @@ Validations related to leaves
 
 
 Snackbar full functionality - colors with OK button - done
-comments
+comments - partially done
 Hide updateEmployee button - done(disabled)
 Horizontal scroll - done
 Theory of nestjs (ng module object keys)

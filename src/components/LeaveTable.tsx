@@ -53,8 +53,8 @@ export default function LeaveTable() {
         try{
           const response = await axios.get(url);
           setLeaves(response.data.model);
-        } catch (Error) {
-          throw Error;
+        } catch (Errors) {
+          throw Errors;
         }
     }
 
@@ -65,8 +65,8 @@ export default function LeaveTable() {
         if(response.data.model){
           setLeaves(response.data.model)
         }
-      } catch (Error) {
-        throw Error;
+      } catch (Errors) {
+        throw Errors;
       }
     }
 

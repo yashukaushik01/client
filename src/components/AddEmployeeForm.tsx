@@ -32,8 +32,8 @@ export default function AddEmployeeForm(){
       setFrameSnackbarMessage(response.data.message)
       // setOpenSnackBar(true);
       navigate('/admin/view-employees')
-    } catch(Error) {
-      throw Error;
+    } catch(Errors) {
+      throw Errors;
     }
   }
 
@@ -73,18 +73,26 @@ export default function AddEmployeeForm(){
 
   //Gets the user details to be pre-filled in form when requested by admin and sets userToUpdate
   async function getUser(){
-    const response = await axios.get(`${url}${params.email}`);
-    setUserToUpdate(response.data.model);
-    if(response.data.model !== null){
-      setDisableForm(true);
+    try {
+      const response = await axios.get(`${url}${params.email}`);
+      setUserToUpdate(response.data.model);
+      if(response.data.model !== null){
+        setDisableForm(true);
+      }
+    } catch (Errors) {
+      throw Errors;
     }
   }
 
   //Gets the user details to be pre-filled in form when requested by employee and sets employee
   async function getEmployee(){
-    const response = await axios.get(`${url}${userParsed.email}`);
-    setEmployee(response.data.model);
-    setDisableForm(true);
+    try {
+      const response = await axios.get(`${url}${userParsed.email}`);
+      setEmployee(response.data.model);
+      setDisableForm(true);
+    } catch (Errors) {
+      throw Errors;
+    }
   }
 
   //Checks if loggedIn user is admin or employee and runs the respective functions
